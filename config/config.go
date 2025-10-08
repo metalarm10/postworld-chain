@@ -19,28 +19,28 @@ var ChainsCoinInfo = map[uint64]evmtypes.EvmCoinInfo{ // TODO:VLAD - Remove this
 	},
 	// SixDecimalsChainID provides a chain ID which is being set up with 6 decimals
 	SixDecimalsChainID: {
-		Denom:         "utest",
-		ExtendedDenom: "atest",
-		DisplayDenom:  "test",
+		Denom:         "usurvive",
+		ExtendedDenom: "asurvive",
+		DisplayDenom:  "survive",
 		Decimals:      evmtypes.SixDecimals,
 	},
 	// EVMChainID provides a chain ID used for internal testing
 	EVMChainID: {
-		Denom:         "atest",
-		ExtendedDenom: "atest",
-		DisplayDenom:  "test",
+		Denom:         "asurvive",
+		ExtendedDenom: "asurvive",
+		DisplayDenom:  "survive",
 		Decimals:      evmtypes.EighteenDecimals,
 	},
 	TwelveDecimalsChainID: {
-		Denom:         "ptest2",
-		ExtendedDenom: "atest2",
-		DisplayDenom:  "test2",
+		Denom:         "psurvive2",
+		ExtendedDenom: "asurvive2",
+		DisplayDenom:  "survive2",
 		Decimals:      evmtypes.TwelveDecimals,
 	},
 	TwoDecimalsChainID: {
-		Denom:         "ctest3",
-		ExtendedDenom: "atest3",
-		DisplayDenom:  "test3",
+		Denom:         "csurvive3",
+		ExtendedDenom: "asurvive3",
+		DisplayDenom:  "survive3",
 		Decimals:      evmtypes.TwoDecimals,
 	},
 	TestChainID1: {

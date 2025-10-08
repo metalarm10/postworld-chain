@@ -16,7 +16,7 @@ describe('Gov Precompile', function () {
         
         // Create a single proposal to be reused across tests
         const jsonProposal = buildProposal(COSMOS_ADDR)
-        const deposit = { denom: 'atest', amount: hre.ethers.parseEther('1') }
+        const deposit = { denom: 'asurvive', amount: hre.ethers.parseEther('1') }
 
         const tx = await gov
             .connect(signer)
@@ -39,7 +39,7 @@ describe('Gov Precompile', function () {
             '@type': '/cosmos.bank.v1beta1.MsgSend',
             from_address: GOV_MODULE_ADDR,
             to_address: toCosmos,
-            amount: [{ denom: 'atest', amount: '1' }],
+            amount: [{ denom: 'asurvive', amount: '1' }],
         }
 
         const prop = {
@@ -64,7 +64,7 @@ describe('Gov Precompile', function () {
 
     it('deposits on the global proposal', async function () {
         const amt = hre.ethers.parseEther('0.5')
-        const deposit = { denom: 'atest', amount: amt }
+        const deposit = { denom: 'asurvive', amount: amt }
 
         // Check balances before deposit
         const signerBalanceBefore = await hre.ethers.provider.getBalance(signer.address)
@@ -153,7 +153,7 @@ describe('Gov Precompile', function () {
         expect(depositResult.proposalId).to.equal(globalProposalId)
         expect(depositResult.depositor).to.equal(signer.address)
         expect(depositResult.amount.length).to.be.greaterThan(0)
-        expect(depositResult.amount[0].denom).to.equal('atest')
+        expect(depositResult.amount[0].denom).to.equal('asurvive')
     })
 
     it('queries all deposits for the global proposal', async function () {

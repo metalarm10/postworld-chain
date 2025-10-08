@@ -9,16 +9,16 @@ import (
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/params"
 
-	"github.com/metalarm10/postworld-chain/types"
 	channeltypes "github.com/cosmos/ibc-go/v10/modules/core/04-channel/types"
 	host "github.com/cosmos/ibc-go/v10/modules/core/24-host"
+	"github.com/metalarm10/postworld-chain/types"
 
 	errorsmod "cosmossdk.io/errors"
 )
 
 var (
 	// DefaultEVMDenom is the default value for the evm denom
-	DefaultEVMDenom = "atest"
+	DefaultEVMDenom = "survive"
 	// DefaultEVMChainID is the default value for the evm chain ID
 	DefaultEVMChainID = "cosmos_262144-1"
 	// DefaultEVMDecimals is the default value for the evm denom decimal precision

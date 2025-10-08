@@ -50,23 +50,23 @@ echo "$USER4_MNEMONIC" | postworldd keys add "$USER4_KEY" --recover --keyring-ba
 
 # Configure genesis file
 echo "🔧 Configuring genesis file..."
-jq '.app_state["staking"]["params"]["bond_denom"]="atest"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="atest"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-jq '.app_state["gov"]["params"]["min_deposit"][0]["denom"]="atest"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-jq '.app_state["gov"]["params"]["expedited_min_deposit"][0]["denom"]="atest"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-jq '.app_state["evm"]["params"]["evm_denom"]="atest"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-jq '.app_state["mint"]["params"]["mint_denom"]="atest"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+jq '.app_state["staking"]["params"]["bond_denom"]="asurvive"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="asurvive"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+jq '.app_state["gov"]["params"]["min_deposit"][0]["denom"]="asurvive"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+jq '.app_state["gov"]["params"]["expedited_min_deposit"][0]["denom"]="asurvive"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+jq '.app_state["evm"]["params"]["evm_denom"]="asurvive"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+jq '.app_state["mint"]["params"]["mint_denom"]="asurvive"' "$GENESIS" > "$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 # Add genesis accounts
 echo "🔧 Setting up genesis accounts..."
-postworldd genesis add-genesis-account "$VAL_KEY" 100000000000000000000000000atest --keyring-backend "$KEYRING" --home "$CHAINDIR"
-postworldd genesis add-genesis-account "$USER1_KEY" 1000000000000000000000atest --keyring-backend "$KEYRING" --home "$CHAINDIR"
-postworldd genesis add-genesis-account "$USER2_KEY" 1000000000000000000000atest --keyring-backend "$KEYRING" --home "$CHAINDIR"
-postworldd genesis add-genesis-account "$USER3_KEY" 1000000000000000000000atest --keyring-backend "$KEYRING" --home "$CHAINDIR"
-postworldd genesis add-genesis-account "$USER4_KEY" 1000000000000000000000atest --keyring-backend "$KEYRING" --home "$CHAINDIR"
+postworldd genesis add-genesis-account "$VAL_KEY" 100000000000000000000000000asurvive --keyring-backend "$KEYRING" --home "$CHAINDIR"
+postworldd genesis add-genesis-account "$USER1_KEY" 1000000000000000000000asurvive --keyring-backend "$KEYRING" --home "$CHAINDIR"
+postworldd genesis add-genesis-account "$USER2_KEY" 1000000000000000000000asurvive --keyring-backend "$KEYRING" --home "$CHAINDIR"
+postworldd genesis add-genesis-account "$USER3_KEY" 1000000000000000000000asurvive --keyring-backend "$KEYRING" --home "$CHAINDIR"
+postworldd genesis add-genesis-account "$USER4_KEY" 1000000000000000000000asurvive --keyring-backend "$KEYRING" --home "$CHAINDIR"
 
 # Generate validator transaction
-postworldd genesis gentx "$VAL_KEY" 1000000000000000000000atest --gas-prices "${BASEFEE}atest" --keyring-backend "$KEYRING" --chain-id "$CHAIN_ID" --home "$CHAINDIR"
+postworldd genesis gentx "$VAL_KEY" 1000000000000000000000asurvive --gas-prices "${BASEFEE}asurvive" --keyring-backend "$KEYRING" --chain-id "$CHAIN_ID" --home "$CHAINDIR"
 postworldd genesis collect-gentxs --home "$CHAINDIR"
 postworldd genesis validate-genesis --home "$CHAINDIR"
 
@@ -83,7 +83,7 @@ sed -i 's/timeout_precommit_delta = "500ms"/timeout_precommit_delta = "100ms"/g'
 echo "🚀 Starting postworldd..."
 exec postworldd start \
     --home "$CHAINDIR" \
-    --minimum-gas-prices=0.0001atest \
+    --minimum-gas-prices=0.0001asurvive \
     --json-rpc.enable \
     --json-rpc.api eth,txpool,personal,net,debug,web3 \
     --json-rpc.address 0.0.0.0:8545 \

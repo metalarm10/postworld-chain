@@ -4,11 +4,12 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/metalarm10/postworld-chain/config"
 	"net"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/metalarm10/postworld-chain/config"
 
 	cosmosevmhd "github.com/metalarm10/postworld-chain/crypto/hd"
 	cosmosevmkeyring "github.com/metalarm10/postworld-chain/crypto/keyring"
@@ -65,7 +66,7 @@ var (
 	unsafeStartValidatorFn UnsafeStartValidatorCmdCreator
 )
 
-const TEST_DENOM = "atest"
+const TEST_DENOM = "asurvive"
 
 var mnemonics = []string{
 	"copper push brief egg scan entry inform record adjust fossil boss egg comic alien upon aspect dry avoid interest fury window hint race symptom",

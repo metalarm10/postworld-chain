@@ -14,7 +14,7 @@ describe('Distribution – fund community pool', function () {
     });
 
     it('funds the community pool and emits FundCommunityPool event', async function () {
-        const coin = { denom: 'atest', amount: hre.ethers.parseEther('0.01') };
+        const coin = { denom: 'asurvive', amount: hre.ethers.parseEther('0.01') };
 
         const beforePool = await distribution.communityPool();
         
